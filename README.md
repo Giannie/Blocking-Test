@@ -2,11 +2,7 @@
 
 ## Requirements:
 
-Python 2.7 or greater (including any version of python 3).
-
-### OR
-
-Python 2.6 with argparse installed. (untested but should work)
+Python 2.7 or Python >= 3.5. (it might run on other versions if correct packages are installed)
 
 ## Usage:
 
