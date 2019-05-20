@@ -8,7 +8,7 @@ Python 2.7 or Python >= 3.5. (it might run on other versions if correct packages
 
 To get a list of all combinations of three subjects that do not work:
 
-python3 blocking.py example_file.json --n 3
+~~~~python3 blocking.py example_file.json --n 3~~~~
 
 ## Blocking file:
 
