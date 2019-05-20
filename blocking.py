@@ -1,3 +1,4 @@
+from __future__ import print_function
 import argparse
 import json
 import itertools
@@ -18,8 +19,8 @@ def main():
     with open(filename, "r") as f:
         block_dict = json.loads(f.read())
     # Separate fm as a special case
-    without_fm = [key for key in block_dict.keys() if key != "fm"]
-    without_ma = [key for key in block_dict.keys() if key not in ["fm", "ma"]]
+    without_fm = [str(key) for key in block_dict.keys() if key != "fm"]
+    without_ma = [str(key) for key in block_dict.keys() if key not in ["fm", "ma"]]
     # Consider all b combinations of size 4, print those that fail
     combos = itertools.combinations(without_fm, n)
     for combo in combos:
