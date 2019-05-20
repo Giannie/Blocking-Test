@@ -1,14 +1,15 @@
 import argparse
+import json
 
 
 def main():
-    description = "Returns a list of impossible combinations"
-    parser = argparse.ArgumentParser(description=description)
-    parser.add_argument("file", metavar="Blocking_File",
-                        type=str, nargs=1,
+    parser = argparse.ArgumentParser(description="Returns a list of impossible combinations")
+    parser.add_argument("file", metavar="Blocking_File", type=str, nargs=1,
                         help="File containing blocking data")
     args = parser.parse_args()
-    print(args.file)
+    filename = args.file[0]
+    with open(filename, "r") as f:
+        json.loads(f.read())
 
 
 if __name__ == "__main__":
