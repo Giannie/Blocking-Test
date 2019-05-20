@@ -6,7 +6,7 @@ Python 2.7 or greater (including any version of python 3).
 
 ### OR
 
-Python 2.6 with argparse installed.
+Python 2.6 with argparse installed. (untested but should work)
 
 ## Usage:
 
