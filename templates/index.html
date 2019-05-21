@@ -22,6 +22,7 @@
             reader.onload = function(event) {
                 var contents = event.target.result;
                 console.log("File contents: " + contents);
+                $("#json-text").val(contents);
             };
             reader.readAsText(file)
         }
