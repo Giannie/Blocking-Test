@@ -43,7 +43,12 @@ def test():
             n = int(n)
         except ValueError:
             abort(400, "bad number entry")
-    combos = blocking.test_all_combos(block_dict, n)
+    combos = []
+    for i in range(2, n + 1):
+        new_combos = blocking.test_all_combos(block_dict)
+        for combo in new_combos:
+            if not blocking.is_dependent_combo(combo, combos):
+                combos.append(combo)
     return render_template('test.html', combos=combos)
 
 

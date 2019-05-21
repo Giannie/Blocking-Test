@@ -74,5 +74,15 @@ def list_overlap(l1, l2):
     return False
 
 
+def is_dependent_combo(combo, combos):
+    if len(combo) <= 2:
+        return False
+    for i in range(2, len(combo)):
+        for sub in itertools.combinations(combo, i):
+            if sub in combos:
+                return True
+    return False
+
+
 if __name__ == "__main__":
     main()
