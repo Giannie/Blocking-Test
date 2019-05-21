@@ -19,6 +19,9 @@
             {% for subject in combo %}
                 <td class="table-cell">{{ subject }}</td>
             {% endfor %}
+            {% for i in range(4 - combo|length) %}
+                <td class="table-cell"></td>
+            {% endfor %}
         </tr>
         {% endfor %}
     </table>
