@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<table>
     {% for combo in combos %}
-        <p>{{ combo }}</p><br>
+    <tr>
+        <td>{{ combo }}</td>
+    </tr>
     {% endfor %}
-
+</table>
 {% endblock %}
