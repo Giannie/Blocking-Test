@@ -5,6 +5,7 @@
     <table id="resp-table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
+                <th>Number</th>
                 <th>Subject 1</th>
                 <th>Subject 2</th>
                 <th>Subject 3</th>
@@ -14,6 +15,7 @@
         
         {% for combo in combos %}
         <tr>
+                <td class="table-cell">{{ combo | length }}</td>
             {% for subject in combo %}
                 <td class="table-cell">{{ subject }}</td>
             {% endfor %}
