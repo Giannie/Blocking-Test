@@ -32,8 +32,10 @@ def test_all_combos(block_dict, n):
     failures = []
     # Separate fm as a special case
     without_fm = [str(key) for key in block_dict.keys() if key != "fm"]
+    without_fm.sort()
     without_ma = [str(key) for key in block_dict.keys()
                   if key not in ["fm", "ma"]]
+    without_ma.sort()
 
     # Consider all b combinations of size 4, print those that fail
     combos = itertools.combinations(without_fm, n)
