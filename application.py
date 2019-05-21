@@ -38,6 +38,11 @@ def test():
         abort(400, 'Bad json file')
     if not n:
         n = 4
+    else:
+        try:
+            n = int(n)
+        except ValueError:
+            abort(400, "bad number entry")
     combos = blocking.test_all_combos(block_dict, n)
     return render_template('test.html', combos=combos)
 
