@@ -21,6 +21,15 @@ def main():
     # Load in blocking dict
     with open(filename, "r") as f:
         block_dict = json.loads(f.read())
+
+    # Test every combo and print those that fail
+    for failure in test_all_combos(block_dict, n):
+        print(failure)
+
+
+def test_all_combos(block_dict, n):
+    """Finds all failing combos from a blocking dictionary"""
+    failures = []
     # Separate fm as a special case
     without_fm = [str(key) for key in block_dict.keys() if key != "fm"]
     without_ma = [str(key) for key in block_dict.keys()
@@ -30,7 +39,7 @@ def main():
     combos = itertools.combinations(without_fm, n)
     for combo in combos:
         if not test_combo(combo, [], block_dict):
-            print("Fails:", combo)
+            failures.append(combo)
 
     # Handle the fm case separately as only 3 subjects
     if "fm" in block_dict.keys() and n >= 2:
@@ -38,7 +47,8 @@ def main():
         for combo in combos:
             combo = ("fm", "fm",) + combo
             if not test_combo(combo, [], block_dict):
-                print("Fails:", combo)
+                failures.append(combo)
+    return failures
 
 
 def test_combo(combo, candidate, block_dict):

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <a href="/">Home</a>
+    {% for combo in combos %}
+        <p>{{ str(combo) }}</p>
+    {% endfor %}
+
+{% endblock %}
