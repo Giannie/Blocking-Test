@@ -31,9 +31,14 @@ def test():
     try:
         file = request.files['file']
     except Exception:
-        abort(400, 'Missing json file')
+        file = request.form.get('json-text')
+        if not file:
+            abort(400, 'Missing json file')
     try:
-        block_dict = json.loads(file.read().decode('utf-8'))
+        if type(file) == str:
+            block_dict = json.loads(file)
+        else:
+            block_dict = json.loads(file.read().decode('utf-8'))
     except json.decoder.JSONDecodeError:
         abort(400, 'Bad json file')
     if not n:

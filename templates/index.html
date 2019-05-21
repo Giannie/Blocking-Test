@@ -8,7 +8,7 @@
             <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
             <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
             <input id="submit" type="submit">
-
+            <input id="json-text" type="text" name="json-text" hidden>
         </form>
     </div>
     <script>
@@ -16,7 +16,10 @@
             $("#file-input").trigger("click");
         }
         function handleFiles(files) {
-            console.log(files[0].name);
+            var file = files[0]
+            console.log(file.name);
+            var reader = new FileReader()
+            console.log(reader.readAsText(file))
         }
         $(document).ready(function() {
             $(".legacy").hide(0);
