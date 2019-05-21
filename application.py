@@ -45,7 +45,7 @@ def test():
             abort(400, "bad number entry")
     combos = []
     for i in range(2, n + 1):
-        new_combos = blocking.test_all_combos(block_dict)
+        new_combos = blocking.test_all_combos(block_dict, i)
         for combo in new_combos:
             if not blocking.is_dependent_combo(combo, combos):
                 combos.append(combo)
