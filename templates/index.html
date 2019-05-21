@@ -2,7 +2,8 @@
 
 {% block main %}
 
-    <div class="col">
+    <div id="form-cont" class="col">
+        <button hidden onclick="fileSelect()"></button>
         <form action="/test" enctype="multipart/form-data" method="post">
             <input class="legacy" id="file-input" type="file" name="file"><br>
             <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
@@ -11,6 +12,9 @@
         </form>
     </div>
     <script>
+        function fileSelect() {
+            console.log("Clicked");
+        }
         $(document).ready(function() {
             $(".legacy").hide(0);
             $("form > br").remove();
