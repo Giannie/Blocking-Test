@@ -15,6 +15,9 @@
         function fileSelect() {
             $("#file-input").trigger("click");
         }
+        function handleFiles(files) {
+            console.log(files[0].name);
+        }
         $(document).ready(function() {
             $(".legacy").hide(0);
             $("form > br").remove();
