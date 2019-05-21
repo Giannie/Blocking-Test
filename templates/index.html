@@ -4,9 +4,8 @@
 
     <div id="form-cont" class="col">
         <div hidden id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-            <p>Drag and drop file to upload</p>
+            <p>Drag and drop file to upload, or click to select</p>
         </div>
-        <button hidden onclick="fileSelect()">Choose File</button>
         <form action="/test" enctype="multipart/form-data" method="post">
             <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
             <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
