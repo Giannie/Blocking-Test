@@ -27,9 +27,10 @@ def index():
 
 @app.route('/test', methods=['POST'])
 def test():
-    file = request.form.get('file')
     n = request.form.get('length')
-    if not file:
+    try:
+        file = request.files['file']
+    except Exception:
         abort(400, 'Missing json file')
     try:
         block_dict = json.loads(file.read().decode('utf-8'))
