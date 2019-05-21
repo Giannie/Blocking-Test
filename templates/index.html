@@ -19,7 +19,11 @@
             var file = files[0]
             console.log(file.name);
             var reader = new FileReader()
-            console.log(reader.readAsText(file))
+            reader.onload = function(event) {
+                var contents = event.target.result;
+                console.log("File contents: " + contents);
+            };
+            reader.readAsText(file)
         }
         $(document).ready(function() {
             $(".legacy").hide(0);
