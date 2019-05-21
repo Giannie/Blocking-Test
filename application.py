@@ -35,5 +35,6 @@ def test():
     combos = blocking.test_all_combos(block_dict, n)
     return render_template('test.html', combos=combos)
 
+
 if __name__ == "__main__":
     app.run()
