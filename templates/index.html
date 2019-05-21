@@ -42,18 +42,18 @@
                 if (ev.dataTransfer.items[i].kind === 'file') {
                     var file = ev.dataTransfer.items[i].getAsFile();
                     console.log('... file[' + i + '].name = ' + file.name);
+                    handleFiles([file])
                 }
                 }
             } else {
                 // Use DataTransfer interface to access the file(s)
                 for (var i = 0; i < ev.dataTransfer.files.length; i++) {
                 console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+                handleFiles([file])
                 }
             }
         }
         function dragOverHandler(ev) {
-            console.log('File(s) in drop zone'); 
-
             // Prevent default behavior (Prevent file from being opened)
             ev.preventDefault();
         }
