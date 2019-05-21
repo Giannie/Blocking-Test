@@ -1,11 +1,37 @@
 {% extends "layout.html" %}
 
-{% block body %}
-<table>
-    {% for combo in combos %}
-    <tr>
-        <td>{{ combo }}</td>
-    </tr>
-    {% endfor %}
-</table>
+{% block main %}
+
+    <table id="resp-table" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Subject 1</th>
+                <th>Subject 2</th>
+                <th>Subject 3</th>
+                <th>Subject 4</th>
+            </tr>
+        </thead>
+        
+        {% for combo in combos %}
+        <tr>
+            {% for subject in combo %}
+                <td class="table-cell">{{ subject }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        // Taken some taken from https://datatables.net/examples/styling/bootstrap4
+        $(document).ready(function() {
+            $('.table-cell').text(function() {
+                if ($(this).text() == "on") {
+                    $(this).css("text-align", "center");
+                }
+                return $(this).text().replace("on", "\u2714");
+            });
+            $('#resp-table').DataTable();
+        } );
+    </script>
+
 {% endblock %}
