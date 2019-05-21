@@ -25,10 +25,7 @@
         // Taken some taken from https://datatables.net/examples/styling/bootstrap4
         $(document).ready(function() {
             $('.table-cell').text(function() {
-                if ($(this).text() == "on") {
-                    $(this).css("text-align", "center");
-                }
-                return $(this).text().replace("on", "\u2714");
+                $(this).css("text-align", "center");
             });
             $('#resp-table').DataTable();
         } );
