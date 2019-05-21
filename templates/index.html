@@ -26,6 +26,7 @@
                 var contents = event.target.result;
                 console.log("File contents: " + contents);
                 $("#json-text").val(contents);
+                $("#drop_zone > p").val("Uploaded: " + file.name);
             };
             reader.readAsText(file)
         }
