@@ -28,10 +28,15 @@ def index():
 @app.route('/test', methods=['POST'])
 def test():
     file = request.form.get('file')
-    n = request.form.get('n')
-    if not file or not n:
-        abort(400, 'Bad form data')
-    block_dict = json.loads(file.read().decode('utf-8'))
+    n = request.form.get('length')
+    if not file:
+        abort(400, 'Missing json file')
+    try:
+        block_dict = json.loads(file.read().decode('utf-8'))
+    except json.decoder.JSONDecodeError:
+        abort(400, 'Bad json file')
+    if not n:
+        n = 4
     combos = blocking.test_all_combos(block_dict, n)
     return render_template('test.html', combos=combos)
 
