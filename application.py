@@ -4,7 +4,6 @@ import json
 import blocking
 
 
-# Test change
 # Configure application
 app = Flask(__name__)
 

@@ -5,11 +5,16 @@
     <div class="col">
         <form action="/test" enctype="multipart/form-data" method="post">
 
-            <input type="file" name="file"><br>
-            <input type="number" name="length" placeholder="Number of subjects"><br>
-            <input type="submit">
+            <input id="file-input" type="file" name="file"><br>
+            <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
+            <input id="submit" type="submit">
 
         </form>
     </div>
+    <script>
+        $(document).ready(function() {
+            $(".legacy").style.display = "none";
+        });
+    </script>
 
 {% endblock %}
