@@ -5,7 +5,7 @@
     <div class="col">
         <form action="/test" enctype="multipart/form-data" method="post">
 
-            <input id="file-input" type="file" name="file"><br>
+            <input class="legacy" id="file-input" type="file" name="file"><br>
             <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
             <input id="submit" type="submit">
 
@@ -13,7 +13,8 @@
     </div>
     <script>
         $(document).ready(function() {
-            $(".legacy").style.display = "none";
+            $(".legacy").css("display", "none");
+            $("#file-input").attr("name", "")
         });
     </script>
 
