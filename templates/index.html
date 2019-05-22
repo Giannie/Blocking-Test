@@ -6,7 +6,7 @@
         <div class="col"></div>
         <div id="form-cont" class="col-md-6 col-10">
             <div hidden class="row align-items-center" id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-                <div class="col">Drag and drop file to upload, or click to select</div>
+                <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
             </div>
             <form action="/test" enctype="multipart/form-data" method="post">
                 <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
@@ -30,7 +30,7 @@
                 var contents = event.target.result;
                 console.log("File contents: " + contents);
                 $("#json-text").val(contents);
-                $("#drop_zone > p").html("Uploaded: " + file.name);
+                $("#drop-text").html("Uploaded: " + file.name);
             };
             reader.readAsText(file)
         }
