@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block main %}
-    <button hidden onclick="downloadCSV()">Download CSV file of data</button>
+    <button id="download-button" hidden onclick="downloadCSV()">Download CSV file of data</button>
     <table id="resp-table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr id="header-row">
@@ -36,7 +36,7 @@
             csv_array.push(header_array.join(","));
             $(".table-row").each(function() {
                 var row_array = [];
-                $(this).find("tr").each(function() {
+                $(this).find("td").each(function() {
                     row_array.push($(this).text());
                 });
                 csv_array.push(row_array.join(","));
