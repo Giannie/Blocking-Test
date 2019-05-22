@@ -31,10 +31,12 @@
             $("#file-input").trigger("click");
         }
         function dragOverHandler(event) {
+            event.preventDefault()
             console.log("hello");
             $("#drop_zone").addClass("drag-over");
         }
         function dragLeaveHandler(event) {
+            event.preventDefault()
             $("#drop_zone").removeClass("drag-over");
         }
         function handleFiles(files) {
