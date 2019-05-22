@@ -31,6 +31,7 @@
 
     <script>
         function downloadCSV() {
+            console.log($("#json-data").text());
             var data_array = JSON.parse($("#json-data").text());
             var csv_string = data_array.join("\n");
             console.log(csv_string);
