@@ -32,7 +32,7 @@
     <script>
         function downloadCSV() {
             console.log($("#json-data").text().replace("'", "\""));
-            var data_array = JSON.parse($("#json-data").text()replace("'", "\""));
+            var data_array = JSON.parse($("#json-data").text().replace("'", "\""));
             var csv_string = data_array.join("\n");
             console.log(csv_string);
         }
