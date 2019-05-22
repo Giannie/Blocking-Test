@@ -35,10 +35,10 @@
             var data_array = JSON.parse($("#json-data").text().replace(regex, "\""));
             var csv_string = data_array.join("\n");
             console.log(csv_string);
-            var encodedURI = encodeURI(csv_string);
+            var csvFile = new Blob([csv_string], {type:"text/csv"});
             var link = document.createElement("a");
-            link.setAttribute("href", encodedURI);
-            link.setAttribute("download", "bad_combos.csv");
+            link.href = window.URL.createObjectURL(csvFile);
+            link.download =  "bad_combos.csv";
             document.body.appendChild(link);
             link.click();
         }
