@@ -54,7 +54,9 @@ def test():
         for combo in new_combos:
             if not blocking.is_dependent_combo(combo, combos):
                 combos.append(combo)
-    return render_template('test.html', combos=combos)
+    json_list = [combo.join(",") for combo in combos]
+    return render_template('test.html', combos=combos,
+                           json_list=str(json_list))
 
 
 if __name__ == "__main__":
