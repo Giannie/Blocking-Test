@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block main %}
-
+    <div class="col-3"></div>
     <div id="form-cont" class="col">
         <div hidden id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
             <p>Drag and drop file to upload, or click to select</p>
@@ -13,6 +13,7 @@
             <input id="json-text" type="text" name="json-text" hidden>
         </form>
     </div>
+    <div class="col-3"></div>
     <script>
         function fileSelect() {
             $("#file-input").trigger("click");
