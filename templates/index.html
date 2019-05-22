@@ -5,7 +5,7 @@
     <div class="row align-items-center">
         <div class="col"></div>
         <div id="form-cont" class="col-md-6 col-10">
-            <div hidden id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+            <div hidden id="drop_zone" onclick="fileSelect();" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler();">
                 <div class="row align-items-center drop-text-container">
                     <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
                 </div>
@@ -30,6 +30,12 @@
         function fileSelect() {
             $("#file-input").trigger("click");
         }
+        function dragOverHandler() {
+            $("#drop-zone").addClass("drag-over");
+        }
+        function dragLeaveHandler() {
+            $("#drop-zone").removeClass("drag-over");
+        }
         function handleFiles(files) {
             var file = files[0]
             console.log(file.name);
@@ -43,7 +49,7 @@
             reader.readAsText(file)
         }
         function dropHandler(ev) {
-            console.log('File(s) dropped');
+            $("#drop-zone").removeClass("drag-over");
 
             // Prevent default behavior (Prevent file from being opened)
             ev.preventDefault();
