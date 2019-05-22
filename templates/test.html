@@ -31,8 +31,8 @@
 
     <script>
         function downloadCSV() {
-            console.log($("#json-data").text().replace("'", "\""));
-            var data_array = JSON.parse($("#json-data").text().replace("'", "\""));
+            var regex = /\'/gi;
+            var data_array = JSON.parse($("#json-data").text().replace(regex, "\""));
             var csv_string = data_array.join("\n");
             console.log(csv_string);
         }
