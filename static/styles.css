@@ -1,9 +1,18 @@
 #drop_zone {
-    border: 5px solid blue;
     width:  100%;
     height: 200px;
     text-align: center;
     margin-left: 0;
+    border: 2px solid #666666;
+    background-color: #ccc;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 3px #000;
+    -ms-box-shadow: inset 0 0 3px #000;
+    box-shadow: inset 0 0 3px #000;
+    cursor: move;
   }
 
 #submit {
