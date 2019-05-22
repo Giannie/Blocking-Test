@@ -30,6 +30,10 @@
         function fileSelect() {
             $("#file-input").trigger("click");
         }
+        function dragOverHandler(ev) {
+            ev.preventDefault();
+            ev.stopPropogation();
+        }
         function handleFiles(files) {
             var file = files[0]
             console.log(file.name);
