@@ -9,7 +9,9 @@
                 <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
             </div>
             <div class="row">
-                <button class="btn btn-primary btn-lg">Submit</button>
+                <div class="col">
+                    <button class="btn btn-primary btn-lg">Submit</button>
+                </div>
             </div>
             <form class="legacy" action="/test" enctype="multipart/form-data" method="post">
                 <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
