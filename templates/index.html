@@ -5,8 +5,10 @@
     <div class="row align-items-center">
         <div class="col"></div>
         <div id="form-cont" class="col-md-6 col-10">
-            <div hidden class="row align-items-center" id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-                <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
+            <div hidden id="drop_zone" onclick="fileSelect()" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                <div class="row align-items-center">
+                    <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
+                </div>
             </div>
             <div class="col-12">
                 <button onclick="submitForm()" class="btn btn-primary btn-lg json-submit">Submit</button>
