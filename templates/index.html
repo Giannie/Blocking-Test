@@ -9,9 +9,9 @@
                 <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary btn-lg">Submit</button>
+                <button onclick="submitForm()" class="btn btn-primary btn-lg">Submit</button>
             </div>
-            <form class="legacy" action="/test" enctype="multipart/form-data" method="post">
+            <form id="block-form" class="legacy" action="/test" enctype="multipart/form-data" method="post">
                 <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
                 <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>
                 <input id="submit" type="submit">
