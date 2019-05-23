@@ -29,7 +29,6 @@ def main():
 
 def test_all_combos(block_dict, n):
     """Finds all failing combos from a blocking dictionary"""
-    failures = []
     # Separate fm as a special case
     without_fm = [str(key) for key in block_dict.keys() if key != "fm"]
     without_fm.sort()
@@ -37,7 +36,8 @@ def test_all_combos(block_dict, n):
                   if key not in ["fm", "ma"]]
     without_ma.sort()
 
-    # Consider all b combinations of size 4, print those that fail
+    # Consider all bad combinations of size 4, print those that fail
+    failures = []
     combos = itertools.combinations(without_fm, n)
     for combo in combos:
         if not test_combo(combo, [], block_dict):
@@ -54,16 +54,31 @@ def test_all_combos(block_dict, n):
 
 
 def test_combo(combo, candidate, block_dict):
-    """Backtracking function to check if a combination works"""
+    """
+    Backtracking function to check if a combination works
+
+    combo is the subject combo
+    candidate stores the potential blocking
+    block_dict stores the blocking structure for each subject
+    """
+
+    # If candidate is same length as combo, a blocking has been found
     if len(candidate) == len(combo):
         return True
+
+    # Iterate over all blocks in the next subject
     for block in block_dict[combo[len(candidate)]]:
+        # Handle subjects in multiple blocks
         blocks = []
         for b in block:
             blocks.append(b)
+
+        # Try a block for a subject
         if not list_overlap(block, candidate):
             if test_combo(combo, candidate + blocks, block_dict):
                 return True
+
+    # Return False if we run out of possible blocks
     else:
         return False
 
@@ -77,8 +92,12 @@ def list_overlap(l1, l2):
 
 
 def is_dependent_combo(combo, combos):
+    """Checks if a combination is already caught in a smaller subject combo"""
+    # Can't had a combo less than 3 fail
     if len(combo) <= 2:
         return False
+
+    # Check all smaller combinations of combo and check if any are in combos
     for i in range(2, len(combo)):
         for sub in itertools.combinations(combo, i):
             if sub in combos:
