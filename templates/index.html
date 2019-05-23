@@ -77,9 +77,14 @@
                 }
             } else {
                 // Use DataTransfer interface to access the file(s)
-                for (var i = 0; i < ev.dataTransfer.files.length; i++) {
-                console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
-                handleFiles([file])
+                try {
+                    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+                        console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+                        handleFiles([file])
+                    }   
+                }
+                catch (err) {
+                    $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
                 }
             }
         }
