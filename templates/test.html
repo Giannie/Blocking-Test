@@ -29,27 +29,6 @@
         {% endfor %}
     </table>
 
-    <script>
-        function downloadCSV() {
-            var regex = /\'/gi;
-            var data_array = JSON.parse($("#json-data").text().replace(regex, "\""));
-            var csv_string = data_array.join("\n");
-            console.log(csv_string);
-            var csvFile = new Blob([csv_string], {type:"text/csv"});
-            var link = document.createElement("a");
-            link.href = window.URL.createObjectURL(csvFile);
-            link.download =  "bad_combos.csv";
-            document.body.appendChild(link);
-            link.click();
-        }
-        // Taken some taken from https://datatables.net/examples/styling/bootstrap4
-        $(document).ready(function() {
-            $("#download-button").removeAttr("hidden");
-            $('.table-cell').text(function() {
-                $(this).css("text-align", "center");
-            });
-            $('#resp-table').DataTable();
-        } );
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='test.js') }}"></script>
 
 {% endblock %}
