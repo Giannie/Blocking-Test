@@ -40,7 +40,7 @@
         }
         function dragLeaveHandler(ev) {
             ev.preventDefault();
-            $("#drop-zone").removeClass("drag-over");
+            $("#drop_zone").removeClass("drag-over");
         }
         function handleFiles(files) {
             var file = files[0]
@@ -54,7 +54,7 @@
             reader.readAsText(file)
         }
         function dropHandler(ev) {
-            $("#drop-zone").removeClass("drag-over");
+            $("#drop_zone").removeClass("drag-over");
 
             // Prevent default behavior (Prevent file from being opened)
             ev.preventDefault();
