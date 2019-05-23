@@ -32,16 +32,14 @@
         }
         function dragOverHandler(ev) {
             ev.preventDefault();
-            ev.stopPropogation();
         }
         function dragEnterHandler(ev){
+            console.log("hello");
             ev.preventDefault();
-            ev.stopPropogation();
             $("#drop_zone").addClass("drag-over");
         }
         function dragLeaveHandler(ev) {
             ev.preventDefault();
-            ev.stopPropogation();
             $("#drop-zone").removeClass("drag-over");
         }
         function handleFiles(files) {
