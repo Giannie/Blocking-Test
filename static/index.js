@@ -39,8 +39,17 @@ function handleFiles(files) {
             $("#json-text").val(contents);
             JSON.parse(contents);
             $("#drop-text").html("Uploaded: " + file.name);
+            
             // Green styling for success
             $("#drop_zone").addClass("up-success");
+            $("#json-submit").removeClass("btn-secondary");
+
+            // Get button ready to submit
+            $("#json-submit").text("Submit");
+            $("#json-submit").addClass("btn-primary");
+            $("#json-submit").click(function() {
+                $("#block-form").submit();
+            })
         }
         // Catch error and update text div
         catch (err) {

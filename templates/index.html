@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button onclick="submitForm()" class="btn btn-primary btn-lg json-submit">Submit</button>
+                <button id="json-submit" class="btn btn-secondary btn-lg json-submit">Please upload a file</button>
             </div>
             <form id="block-form" class="legacy" action="/test" enctype="multipart/form-data" method="post">
                 <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
