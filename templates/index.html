@@ -46,9 +46,9 @@
             var file = files[0]
             var reader = new FileReader()
             reader.onload = function(event) {
-                var contents = event.target.result;
-                $("#json-text").val(contents);
                 try {
+                    var contents = event.target.result;
+                    $("#json-text").val(contents);
                     JSON.parse(contents);
                     $("#drop-text").html("Uploaded: " + file.name);
                     $("#drop_zone").addClass("up-success");
