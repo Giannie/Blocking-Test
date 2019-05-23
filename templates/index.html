@@ -6,7 +6,7 @@
         <div class="col"></div>
         <div id="form-cont" class="col-md-6 col-10">
             <div hidden id="drop_zone" onclick="fileSelect();" ondrop="dropHandler(event);" ondragleave="dragLeaveHandler(event);" ondragover="dragOverHandler(event);" ondragenter="dragEnterHandler(event);">
-                <div onclick="fileSelect();" ondragleave="dragLeaveHandler(event);" ondragover="dragOverHandler(event);" ondragenter="dragEnterHandler(event);" class="row align-items-center drop-text-container">
+                <div class="row align-items-center drop-text-container">
                     <div class="col" id="drop-text">Drag and drop file to upload, or click to select</div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
             $("#file-input").trigger("click");
         }
         function dragOverHandler(ev) {
+            $("#drop_zone").addClass("drag-over");
             ev.preventDefault();
         }
         function dragEnterHandler(ev){
-            console.log("hello");
             ev.preventDefault();
             $("#drop_zone").addClass("drag-over");
         }
