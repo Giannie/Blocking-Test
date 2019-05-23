@@ -47,9 +47,15 @@
             var reader = new FileReader()
             reader.onload = function(event) {
                 var contents = event.target.result;
-                // console.log("File contents: " + contents);
                 $("#json-text").val(contents);
-                $("#drop-text").html("Uploaded: " + file.name);
+                try {
+                    JSON.parse(contents);
+                    $("#drop-text").html("Uploaded: " + file.name);
+                    $("#drop_zone").addClass("up-success");
+                }
+                catch (err) {
+                    $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
+                }
             };
             reader.readAsText(file)
         }
