@@ -31,9 +31,9 @@
             $("#file-input").trigger("click");
         }
         function dragOverHandler(ev) {
-            console.log("Hello");
             ev.preventDefault();
             ev.stopPropogation();
+            console.log("Hello");
         }
         function handleFiles(files) {
             var file = files[0]
