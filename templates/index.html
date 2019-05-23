@@ -41,6 +41,7 @@
         function dragLeaveHandler(ev) {
             ev.preventDefault();
             $("#drop_zone").removeClass("drag-over");
+            $("#drop_zone").removeClass("up-success");
         }
         function handleFiles(files) {
             var file = files[0]
@@ -67,6 +68,7 @@
         }
         function dropHandler(ev) {
             $("#drop_zone").removeClass("drag-over");
+            $("#drop_zone").removeClass("up-success");
 
             // Prevent default behavior (Prevent file from being opened)
             ev.preventDefault();

@@ -2,6 +2,10 @@
     background-color: white!important;
 }
 
+.up-success {
+    background-color: forestgreen!important;
+}
+
 #drop_zone {
     width:  100%;
     height: 200px;
