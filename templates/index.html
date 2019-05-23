@@ -57,7 +57,13 @@
                     $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
                 }
             };
-            reader.readAsText(file)
+            try {
+                reader.readAsText(file);
+            }
+            catch (err) {
+                consol.log("Couldn't read file");
+            }
+            
         }
         function dropHandler(ev) {
             $("#drop_zone").removeClass("drag-over");
