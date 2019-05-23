@@ -70,10 +70,9 @@
 
             // Prevent default behavior (Prevent file from being opened)
             ev.preventDefault();
-
+            try {
             if (ev.dataTransfer.items) {
                 // Use DataTransferItemList interface to access the file(s)
-                try {
                     for (var i = 0; i < ev.dataTransfer.items.length; i++) {
                         // If dropped items aren't files, reject them
                         if (ev.dataTransfer.items[i].kind === 'file') {
@@ -83,20 +82,16 @@
                         }
                     }
                 }
-                catch (err) {
-                    $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
-                }
-            } else {
-                // Use DataTransfer interface to access the file(s)
-                try {
+                else {
+                    // Use DataTransfer interface to access the file(s)
                     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
                         console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
                         handleFiles([file])
                     }   
                 }
-                catch (err) {
-                    $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
-                }
+            }
+            catch (err) {
+                $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\"</a>");
             }
         }
         $(document).ready(function() {
