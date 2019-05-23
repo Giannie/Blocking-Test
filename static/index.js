@@ -39,7 +39,7 @@ function handleFiles(files) {
             $("#json-text").val(contents);
             JSON.parse(contents);
             $("#drop-text").html("Uploaded: " + file.name);
-            
+
             // Green styling for success
             $("#drop_zone").addClass("up-success");
             $("#json-submit").removeClass("btn-secondary");
@@ -51,9 +51,13 @@ function handleFiles(files) {
                 $("#block-form").submit();
             })
         }
-        // Catch error and update text div
+        // Catch error and update text div and button
         catch (err) {
             $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
+            $("#json-submit").addClass("btn-primary");
+            $("#json-submit").text("Please upload a file");
+            $("#json-submit").addClass("btn-secondary");
+            $("#json-submit").off("click");
         }
     };
     reader.readAsText(file);
@@ -87,8 +91,14 @@ function dropHandler(ev) {
             }
         }
     }
+
+    // Catch error and update text div and button
     catch (err) {
         $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
+        $("#json-submit").addClass("btn-primary");
+        $("#json-submit").text("Please upload a file");
+        $("#json-submit").addClass("btn-secondary");
+        $("#json-submit").off("click");
     }
 }
 
