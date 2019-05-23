@@ -54,7 +54,7 @@
                     $("#drop_zone").addClass("up-success");
                 }
                 catch (err) {
-                    alert("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
+                    $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
                 }
             };
             try {
@@ -91,7 +91,7 @@
                 }
             }
             catch (err) {
-                alert("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
+                $("#drop-text").html("Invalid JSON, please try again.<br>You can check your json here:<br><a href=\"https://jsonlint.com\">JSONLint</a>");
             }
         }
         $(document).ready(function() {
