@@ -13,6 +13,14 @@
             <div class="col-12">
                 <button id="json-submit" class="btn btn-secondary btn-lg json-submit">Please upload a file</button>
             </div>
+            <div class="col-12">
+                <button id="edit-submit" class="btn btn-outline-success btn-lg edit-submit" onclick="editJson()">Edit json file</button>
+            </div>
+            <div class="col-12">
+                <p>
+                    Click edit json after uploading a file to make changes to your blocking. Or just click it without uploading to start from scratch
+                </p>
+            </div>
             <form id="block-form" class="legacy" action="/test" enctype="multipart/form-data" method="post">
                 <input class="legacy" id="file-input" type="file" name="file" onchange="handleFiles(this.files)"><br>
                 <input class="legacy" id="number-input" type="number" name="length" placeholder="Number of subjects"><br>

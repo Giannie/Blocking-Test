@@ -102,6 +102,12 @@ function dropHandler(ev) {
     }
 }
 
+function editJson() {
+    console.log("hello");
+    $("#block-form").attr("action", "/edit");
+    $("#block-form").submit();
+}
+
 // Prepare file when document is ready
 $(document).ready(function() {
     $(".legacy").hide(0);

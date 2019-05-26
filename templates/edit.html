@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="container">
+    <button onclick="downloadJson()">Download Json File</button><button onclick="submitJson()">Submit</button><br>
+    <p>
+        Warning: If you click submit without downloading a backup, you will lose any changes
+    </p>
+    <h2>Single Blocks</h2>
+    <table style="text-align: center;">
+        <thead>
+            <tr>
+                <td>Subject Code</td>
+                <td>Block A</td>
+                <td>Block B</td>
+                <td>Block C</td>
+                <td>Block D</td>
+            </tr>
+        </thead>
+        <tbody id="single-table-body">
+            {% for subject, blocks in blocking_dict.items() %}
+            <tr>
+                <td><input class="subject" type="text" value="{{ subject }}"></td>
+                {% for block in ["A", "B", "C", "D"] %}
+                <td><input type="checkbox" class="block" name="{{ block }}" {%if block in blocks %}checked{% endif %}></td>
+                {% endfor %}
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="addRowSingle()">Add row</button>
+    <h2>Double Blocks</h2>
+    <table style="text-align: center;">
+        <thead>
+            <tr>
+                <td>Subject Code</td>
+                <td>Block AB</td>
+                <td>Block AC</td>
+                <td>Block AD</td>
+                <td>Block BC</td>
+                <td>Block BD</td>
+                <td>Block CD</td>
+            </tr>
+        </thead>
+        <tbody id="double-table-body">
+            {% for subject, blocks in blocking_dict.items() %}
+            <tr>
+                <td><input class="subject" type="text" value="{{ subject }}"></td>
+                {% for block in ["AB", "AC", "AD", "BC", "BD", "CD"] %}
+                <td><input type="checkbox" class="block" name="{{ block }}" {%if block in blocks %}checked{% endif %}></td>
+                {% endfor %}
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="addRowDouble()">Add row</button>
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='edit.js') }}"></script>
+
+{% endblock %}

@@ -67,5 +67,18 @@ def test():
                            json_list=str(json_list))
 
 
+@app.route("/edit", methods=["POST"])
+def edit():
+    file = request.form.get('json-text')
+    if not file:
+        blocking_dict = {}
+    else:
+        try:
+            blocking_dict = json.loads(file)
+        except json.decoder.JSONDecodeError:
+            abort("bad json file")
+    return render_template("edit.html", blocking_dict=blocking_dict)
+
+
 if __name__ == "__main__":
     app.run()
